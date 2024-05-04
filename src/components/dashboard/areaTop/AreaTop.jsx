@@ -4,19 +4,13 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { SidebarContext } from "../../../context/SidebarContext";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { addDays } from "date-fns";
-import { DateRange } from "react-date-range";
+
 
 const AreaTop = () => {
   const { openSidebar } = useContext(SidebarContext);
 
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 7),
-      key: "selection",
-    },
-  ]);
+
+
 
   const [showDatePicker, setShowDatePicker] = useState(false);
   const dateRangeRef = useRef(null);
@@ -48,7 +42,7 @@ const AreaTop = () => {
         >
           <MdOutlineMenu size={24} />
         </button>
-        <h2 className="area-top-title">Dashboard</h2>
+        <h2 className="area-top-title">Student Dashboard</h2>
       </div>
       <div className="area-top-r">
         <div
@@ -58,13 +52,6 @@ const AreaTop = () => {
           }`}
           onClick={handleInputClick}
         >
-          <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setState([item.selection])}
-            moveRangeOnFirstSelection={false}
-            ranges={state}
-            showMonthAndYearPickers={false}
-          />
         </div>
       </div>
     </section>

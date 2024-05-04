@@ -12,6 +12,12 @@
   z-index: 999;
   transition: var(--default-transition);
   overflow-y: scroll;
+  
+  .img-student{
+    width: 10%;
+    height: 10%;
+    margin-bottom: 10px;
+  }
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -122,6 +128,7 @@
     border-radius: 12px;
     color: var(--side-text-color);
     transition: var(--default-transition);
+    background-color:var(--background-color);
 
     @media(max-width: 1200px){
         padding: 2px;

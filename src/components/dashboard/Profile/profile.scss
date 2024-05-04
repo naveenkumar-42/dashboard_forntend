@@ -1,0 +1,129 @@
+
+$lg-text-color: #333333;
+$xl-text-color: #000000;
+$base-text-color: #666666;
+$border-color-inverted: #DDDDDD;
+
+
+.student-profile {
+  display: flex;
+  height: 300px;
+
+  .box {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .image-box {
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .info-box {
+    .name {
+      font-weight: bold;
+      color: $lg-text-color;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .number,
+    .address {
+      margin-top: 5px;
+      color: $base-text-color;
+    }
+  }
+
+  .details-box {
+    .college {
+      font-weight: bold;
+      color: $lg-text-color;
+      margin-bottom: 8px;
+    }
+
+    .department {
+      margin-top: 5px;
+      color: $base-text-color;
+    }
+  }
+}
+
+.profile-item {
+    display: grid;
+      grid-template-columns: repeat(3, 1fr);
+        margin-top: 12px;
+        gap: 16px;
+        font-size:17px;
+        color: aliceblue;
+      
+        @media (max-width: 992px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      
+        @media (max-width: 576px) {
+          grid-template-columns: 100%;
+        }
+      }
+      
+      .profile_start {
+        background-color: var(--secondary-color);
+        align-items: center;
+        border-radius: 5px;
+        padding: 20px 16px;
+        justify-content: space-between;
+        box-shadow: var(--light-shadow1);
+        color: var(--lg-text-color);
+      
+        @media (max-width: 768px) {
+          padding: 25px;
+          padding-left: 50px;
+          
+        }
+        .profile_img{
+          margin-left: 23%;
+        }
+      .profile_status {
+                  font-size: 30px;
+                  margin: 20px 0px 0px 0px;
+                  padding: 10px 0px 10px 25%;
+                  background-color: rgb(76, 225, 63);
+                  
+                  transition: 0.5s;
+                  color: #000000;
+                  cursor: context-menu;
+                }
+                .profile_status:hover{
+                  background-color: greenyellow;
+                  transition: 0.5s;
+                }
+      }
+      
+      .profile_bold{
+        font-size: 25px;
+        font-weight: bold;
+        color: var(--lg-text-color);
+      }
+
+      .profile_middle {
+        margin: 0px 10px;
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+        padding: 2% 10%;
+        justify-content: space-between;
+        box-shadow: var(--light-shadow1);
+        color: var(--lg-text-color);
+      }
+      
+      .profile_end {
+        flex-direction: column;
+        background-color: var(--secondary-color);
+        border-radius: 5px;
+        padding: 2.8% 10%;
+        justify-content: space-between;
+        box-shadow: var(--light-shadow1);
+        color: var(--lg-text-color);
+      }

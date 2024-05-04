@@ -1,58 +1,44 @@
-const data = [
-  {
-    id: 1,
-    name: "Jeans",
-    percentValues: 70,
-  },
-  {
-    id: 2,
-    name: "Shirts",
-    percentValues: 40,
-  },
-  {
-    id: 3,
-    name: "Belts",
-    percentValues: 60,
-  },
-  {
-    id: 4,
-    name: "Caps",
-    percentValues: 80,
-  },
-  {
-    id: 5,
-    name: "Others",
-    percentValues: 20,
-  },
-];
+import { useState, useEffect } from 'react';
 
 const AreaProgressChart = () => {
+  const [achievements, setAchievements] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from your API endpoint
+    fetch('http://localhost:3001/s_archivement')
+      .then(response => response.json())
+      .then(data => {
+        setAchievements(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []); // Empty dependency array ensures the effect runs only once on component mount
+
   return (
     <div className="progress-bar">
       <div className="progress-bar-info">
-        <h4 className="progress-bar-title">Most Sold Items</h4>
+        <h4 className="progress-bar-title">Achievement Progress</h4>
       </div>
       <div className="progress-bar-list">
-        {data?.map((progressbar) => {
-          return (
-            <div className="progress-bar-item" key={progressbar.id}>
-              <div className="bar-item-info">
-                <p className="bar-item-info-name">{progressbar.name}</p>
-                <p className="bar-item-info-value">
-                  {progressbar.percentValues}
-                </p>
+        {achievements.map((achievement, index) => (
+          <div className="progress-bar-item" key={index}>
+            {Object.entries(achievement).map(([key, value]) => (
+              <div className="bar-item-info" key={key}>
+                <p className="bar-item-in fo-name">{key}</p>
+                <div className="bar-item-full">
+                  <div   
+                    className="bar-item-filled"
+                    style={{
+                      width: `${(value / 5) * 100}%`, // Assuming 3 is the maximum number of achievements for scaling
+                    }}
+                  ></div> 
+                </div>
+                <p className="bar-item-info-value">{value}</p>
               </div>
-              <div className="bar-item-full">
-                <div
-                  className="bar-item-filled"
-                  style={{
-                    width: `${progressbar.percentValues}%`,
-                  }}
-                ></div>
-              </div>
-            </div>
-          );
-        })}
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

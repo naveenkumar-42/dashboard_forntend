@@ -1,8 +1,9 @@
 import { useContext, useEffect, useRef } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
-import { LIGHT_THEME } from "../../constants/themeConstants";
-import LogoBlue from "../../assets/images/logo_blue.svg";
-import LogoWhite from "../../assets/images/logo_white.svg";
+import dashboardImage from '../../assets/icons/dashboard.png';
+import studentImage from '../../assets/icons/student.png';
+import parentImage from '../../assets/icons/parent.png';
+import adminImage from '../../assets/icons/admin.png';
+
 import {
   MdOutlineAttachMoney,
   MdOutlineBarChart,
@@ -10,17 +11,17 @@ import {
   MdOutlineCurrencyExchange,
   MdOutlineGridView,
   MdOutlineLogout,
+  MdAdminPanelSettings,
   MdOutlineMessage,
   MdOutlinePeople,
   MdOutlineSettings,
-  MdOutlineShoppingBag,
+  MdOutlineShoppingBag
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./Sidebar.scss";
 import { SidebarContext } from "../../context/SidebarContext";
 
 const Sidebar = () => {
-  const { theme } = useContext(ThemeContext);
   const { isSidebarOpen, closeSidebar } = useContext(SidebarContext);
   const navbarRef = useRef(null);
 
@@ -29,7 +30,7 @@ const Sidebar = () => {
     if (
       navbarRef.current &&
       !navbarRef.current.contains(event.target) &&
-      event.target.className !== "sidebar-oepn-btn"
+      event.target.className !== "sidebar-open-btn"
     ) {
       closeSidebar();
     }
@@ -49,8 +50,8 @@ const Sidebar = () => {
     >
       <div className="sidebar-top">
         <div className="sidebar-brand">
-          <img src={theme === LIGHT_THEME ? LogoBlue : LogoWhite} alt="" />
-          <span className="sidebar-brand-text">tabernam.</span>
+          <img className="img-student" src={dashboardImage} alt="Student" />
+          <span className="sidebar-brand-text">Dashboard</span>
         </div>
         <button className="sidebar-close-btn" onClick={closeSidebar}>
           <MdOutlineClose size={24} />
@@ -62,28 +63,28 @@ const Sidebar = () => {
             <li className="menu-item">
               <Link to="/" className="menu-link active">
                 <span className="menu-link-icon">
-                  <MdOutlineGridView size={18} />
+                  <img src={studentImage} alt="Student" style={{ width: 16, height: 20 }} />
                 </span>
-                <span className="menu-link-text">Dashboard</span>
+                <span className="menu-link-text">Student</span>
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
-                  <MdOutlineBarChart size={20} />
+                   <img src={adminImage} alt="admin" style={{ width: 16, height: 20 }} />
                 </span>
-                <span className="menu-link-text">Statistics</span>
+                <span className="menu-link-text">Admin / Management</span>
               </Link>
             </li>
             <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
-                  <MdOutlineAttachMoney size={20} />
+                  <img src={parentImage} alt="Parent" />
                 </span>
-                <span className="menu-link-text">Payment</span>
+                <span className="menu-link-text">Parent</span>
               </Link>
             </li>
-            <li className="menu-item">
+           {/* <li className="menu-item">
               <Link to="/" className="menu-link">
                 <span className="menu-link-icon">
                   <MdOutlineCurrencyExchange size={18} />
@@ -114,7 +115,7 @@ const Sidebar = () => {
                 </span>
                 <span className="menu-link-text">Messages</span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 
