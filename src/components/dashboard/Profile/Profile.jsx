@@ -32,10 +32,10 @@ const ProfileDisplay = () => {
 
                         <div className='profile_end'>
                             <div>{profile.semester}</div>
-                            <div>Special lab: {profile.spl_lab}</div>
-                            <div>Mentor: {profile.mentor}</div>
-                            <div>Boarding: {profile.boarding}</div>
-                            <div>Warden: {profile.warden}</div>
+                            <div>Special lab:{profile.spl_lab}</div>
+                            <div>Mentor:{profile.mentor}</div>
+                            <div>Boarding:{profile.boarding}</div>
+                            <div>Warden:{profile.warden}</div>
                         </div>
                     </div>
                 ))}
