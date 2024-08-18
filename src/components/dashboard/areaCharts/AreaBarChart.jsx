@@ -56,7 +56,7 @@
               {(totalCgpa / data.length).toFixed(2)}
             </div>
             <div className="info-data-text">
-              <p> /10.00</p>
+              <p> / 10.00</p>
             </div>
           </div>
         </div>
